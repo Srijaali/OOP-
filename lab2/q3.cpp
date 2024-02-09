@@ -7,22 +7,23 @@ Desc: finding subset of a sum
 #include <iostream>
 using namespace std;
 
-bool hasSubsetSum(int arr[], int size, int targetsum, int currentsum = 0, int arrindex = 0) {
-    if (currentsum == targetsum) {
-        return true;
+bool hasSubsetSum(int arr[], int size, int targetsum) 
+{
+    if(size < 0)return false;
+
+    int sum=0;
+
+    bool check = hasSubsetSum(arr, size-1, targetsum);
+
+    if(check)return true;
+
+    for(int i=size; i>=0; i--){
+        sum += arr[i];
+        if(sum == targetsum)return true;
+        else if(sum > targetsum)return false;
     }
 
-    if (arrindex == size) {
-        return false;
-    }
-
-    // Including current element in the subset sum
-    if (hasSubsetSum(arr, size, targetsum, currentsum + arr[arrindex], arrindex + 1)) {
-        return true;
-    }
-
-    // Excluding current element from the subset sum
-    return hasSubsetSum(arr, size, targetsum, currentsum, arrindex + 1);
+    return false;
 }
 
 int main() {
@@ -41,7 +42,7 @@ int main() {
     cout << "Enter the Integer value you want to search for in the array: " << endl;
     cin >> targetsum;
 
-    if (hasSubsetSum(arr, size, targetsum)) {
+    if (hasSubsetSum(arr, size-1, targetsum)) {
         cout << "Subset with sum " << targetsum << " exists in the array" << endl;
     } else {
         cout << "Subset with sum " << targetsum << " does not exist in the array" << endl;
