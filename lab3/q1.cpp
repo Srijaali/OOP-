@@ -11,20 +11,29 @@ class BoardMarker{
 
 
     public:
-    string setbrand(string brand){
+
+    BoardMarker(string Brand, string Shade, bool refill, bool ink){
+        brand = Brand;
+        shade = Shade;
+        refillable = refill;
+        inkstatus = ink;
+
+    }
+
+     void setbrand(string brand){
         brand = Brand;
     }
 
     string getbrand(){
-        return Brand;
+        return brand;
     }
 
-    string setshade(string shade){
+    void setshade(string shade){
         shade = Shade;
     }
 
     string getshade(){
-        return Shade;
+        return shade;
     }
 
     bool setrefillable(bool refillable){
@@ -32,19 +41,19 @@ class BoardMarker{
     }
 
     bool getrefillable(){
-        return refill;
+        return refillable;
     }
 
      bool setinkstatus(bool inkstatus){
-        inkstatus = Inkstatus
+        inkstatus = ink
     }
 
     bool getrinkstatus(){
-        return Inkstatus;
+        return inkstatus;
     }
 
     void written(bool inkstatus){
-        if (Inkstatus==true){
+        if (inkstatus==true){
             cout << "Ink is present in " << shade << " brand name" << Brand;
 
         }
@@ -56,11 +65,11 @@ class BoardMarker{
     void refill(bool refillable){
         if(refill==true){
             cout << " refill the marker";
-            Inkstatus = true;
+            inkstatus = true;
             cout<< "refilled!";
         }
         else{
-            cout << "not refillable"
+            cout << "not refillable";
         }
     }
 
