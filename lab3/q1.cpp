@@ -56,6 +56,8 @@ class BoardMarker{
     void refill(bool refillable){
         if(refill){
             cout << " is refillable";
+            Inkstatus = true;
+            cout<< "refilled!";
         }
         else{
             cout << "not refillable"
@@ -63,3 +65,15 @@ class BoardMarker{
     }
 
 };
+
+int main(){
+
+     BoardMarker marker("Dollar", "Black", true , true);
+
+     marker.written();
+     marker.refill();
+     marker.written();
+
+     return 0;
+
+}
