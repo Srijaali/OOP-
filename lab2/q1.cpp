@@ -1,35 +1,42 @@
 #include <iostream>
 using namespace std;
 
-int recursiveswap(int& a,int& b){
-   int temp;
-    if(a==b){
-        return 0;//base case to return/exit if the integers are same
-    }
+void recursiveSwap(int &a, int &b) {
+	if(a==b){
+		return;
+	}
+    else if (a > b) {
+    
+        a = a - b;
+        b = b + a;
+        a = b - a;
+    } 
+   
     else {
-        
-        temp = a;
-        a = b;
-        b = temp;
-    recursiveswap(b,a)
-
-    }
- 
+			recursiveSwap(b,a);
+        }
 }
 
 int main() {
-    int a = 6;
-    int b = 2;
-    int temp;
+    int a;
+	int b;
 
-    cout << "Before swapping: \n";
-    cout << "A = " << a << "\n";
-      cout << "B = " << b << endl;
+cout<<"Enter num 1: ";
+cin>>a;
 
-      recursiveswap(a,b);
-
-      cout<< "After swapping:\n";
-      cout<< "A = " << a << "\n";
-        cout<< "B = " << b << "\n";
-
+cout<<"Enter num 2: ";
+cin>>b;
+    
+cout << "Before swapping:\n";
+cout<<"A = " << a <<"\n";
+cout<<"B = " << b <<endl;
+    
+    recursiveSwap(a, b);
+    
+cout << "After swapping:\n"; 
+cout<<"A = " << a <<"\n";
+cout<<"B = " << b <<endl;
+    
+    return 0;
 }
+
