@@ -44,7 +44,7 @@ class BoardMarker{
     }
 
     void written(bool inkstatus){
-        if (Inkstatus){
+        if (Inkstatus==true){
             cout << "Ink is present in " << shade << " brand name" << Brand;
 
         }
@@ -54,8 +54,8 @@ class BoardMarker{
     }
 
     void refill(bool refillable){
-        if(refill){
-            cout << " is refillable";
+        if(refill==true){
+            cout << " refill the marker";
             Inkstatus = true;
             cout<< "refilled!";
         }
@@ -68,11 +68,11 @@ class BoardMarker{
 
 int main(){
 
-     BoardMarker marker("Dollar", "Black", true , true);
+     BoardMarker marker("Dollar", "Black", true, true);
 
-     marker.written();
+     marker.written("Dollar");
      marker.refill();
-     marker.written();
+    
 
      return 0;
 
