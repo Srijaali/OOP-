@@ -9,11 +9,11 @@ using namespace std;
 
 class LoanHelper{
     private:
+    const float interestRate;
     int loanAmount;
     int months; // the months user will repay the loan in
 
     public:
-    const float interestRate;
     LoanHelper(): interestRate(0.2) , loanAmount(0), months(0) {}
        
     LoanHelper(int loanAmount, int months): interestRate(0.2) , loanAmount(loanAmount) , months(months) {}
@@ -34,7 +34,7 @@ class LoanHelper{
         return this -> months;
     }
 
-    int loanRepayment(int loanAmount, const float interestRate, int months){
+    int loanRepayment(){
        return  (loanAmount / months) * interestRate;  
     }
 };
@@ -46,9 +46,9 @@ int main(){
     l1.setLoanAmount(4000);
     l1.setMonths(3);
 
-    cout << "You have taken " << l1.getLoanAmount() << " and you have " << l1.getMonth() << " months to repay your loan." << endl;
+    cout << "You have taken " << l1.getLoanAmount() << " rupees loan and you have " << l1.getMonth() << " months to repay it." << endl;
 
-    cout << "You have to pay " << l1.loanRepayment(l1.getLoanAmount(),l1.interestRate, l1.getMonth()) << " every month for the next " << l1.getMonth() << " months to repay your loan!"<< endl;
+    cout << "You have to pay " << l1.loanRepayment() << " every month for the next " << l1.getMonth() << " months to repay your loan!"<< endl;
 
     return 0;
 
