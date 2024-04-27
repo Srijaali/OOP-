@@ -1,7 +1,7 @@
 /*
 Name: Syeda Rija Ali
 ID: 23K-0057
-Desc:  program to show the working of friend class.
+Desc:  Overloading decrement operator in different ways
 */
 
 #include <iostream>
