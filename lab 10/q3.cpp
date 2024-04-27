@@ -37,12 +37,9 @@ int main(){
     shape2.Display();
 
     Shape shape3 = shape1 + shape2;
-   // shape3 = shape1 + shape2;
    cout << "Combined" ;
    shape3.Display();
 
    return 0;
     
-    //shape3.area();
-
 }
